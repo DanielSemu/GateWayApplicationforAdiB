@@ -1,0 +1,41 @@
+.admin_page .head{
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}
+tbody .edit{
+    background-color: rgb(4, 170, 109);
+    padding:5px 10px;
+}
+tbody .delete{
+    padding:5px 10px;
+    color: black;
+    background-color: rgb(244, 67, 54);
+    margin-left: 5px;
+}
+.operation{
+    display: flex;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+}
+.head .add_new{
+    background-color: rgb(4, 170, 109);
+    padding: 5px 10px;
+}
+.head .buttons .add_new{
+    margin-right: 5px;
+}

@@ -1,6 +1,6 @@
 from tokenize import TokenError
 from rest_framework import serializers
-from .models import User
+from .models import User,Applications
 from django.contrib.auth import authenticate
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework_simplejwt.tokens import RefreshToken, Token
@@ -71,4 +71,10 @@ class LogoutUserSerializer(serializers.Serializer):
             token.blacklist()
         except TokenError:
             return self.fail('bad_token')
-            
+
+
+class ApplicationSerializer(serializers.ModelSerializer):
+    app_category = serializers.CharField(source='app_category.category', read_only=True)
+    class Meta:
+        model =Applications
+        fields =['id','app_name','image','url','app_category','description']

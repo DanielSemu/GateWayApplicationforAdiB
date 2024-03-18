@@ -1,8 +1,8 @@
 
 import React from 'react';
 import Login from './Login';
-import SignUp from './SignUp';
-import Profile from './Profile';
+import SignUp from './signup/SignUp';
+import Profile from './Admin/Profile';
 
 export {
     Login,

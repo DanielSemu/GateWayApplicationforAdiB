@@ -40,7 +40,7 @@ const SignUp = () => {
     };
     
     return (
-        <div>
+        <div className='container section'>
             <h2>Create Account</h2>
             <p style={{color:"red"}}>{error? error:""}</p>
             <form onSubmit={handleSubmit}>
@@ -81,7 +81,7 @@ const SignUp = () => {
                     onChange={handleOnChange}
                 />
                 <br/>
-                <input type="submit" value="Submit" />
+                <input type="submit" className='bt' value="Submit" />
             </form>
             
         </div>
