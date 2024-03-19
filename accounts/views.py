@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.generics import GenericAPIView
-from .serializers import UserRegisterSerializer,LoginSerializer,LogoutUserSerializer
+from .serializers import  UserRegisterSerializer,LoginSerializer,LogoutUserSerializer,ApplicationSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from .utils import send_code_to_user
@@ -8,7 +8,9 @@ from rest_framework.permissions import IsAuthenticated
 from .serializers import ApplicationSerializer
 from .models import Applications
 from rest_framework.decorators import api_view
-
+from rest_framework.views import APIView
+from .models import Applications,App_Category
+from .serializers import ApplicationSerializer
 
 
 
@@ -61,5 +63,17 @@ class LogoutUserView(GenericAPIView):
         serializer=self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        print("gate")
+        return Response(status=status.HTTP_200_OK)
+    
+class ApplicationCreateView(APIView):
+    query_set=Applications.objects.all()
+    serializer_class = ApplicationSerializer()
+    def post(self, request, *args ,**kwargs):
+        app_name=request.data["app_name"]
+        image=request.data["image"]
+        url=request.data["url"]
+        app_category=request.data["app_category"]
+        description=request.data["description"]
+        category =App_Category.objects.get(category=app_category)
+        Applications.objects.create(app_name=app_name,image=image,url=url,app_category=category,description=description)
         return Response(status=status.HTTP_200_OK)

@@ -4,7 +4,7 @@ import { Login, Profile } from './components'
 import SignUp from './components/registerapplication/SignUp'
 import Navbar from './components/navbar/Navbar'
 import Applications from './pages/applications/Applications'
-import RegisterUser from './components/registerUser/RegisterUser'
+import RegisterApplication from './components/registerUser/RegisterApplication'
 // import Applications from './pages/applications/Applications'
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
           <Route path='/' element={<Applications/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/profile' element={<Profile/>}/>
-          <Route path='/register/application' element={<RegisterUser/>}/>
+          <Route path='/register/application' element={<RegisterApplication/>}/>
           <Route path='/register/admin' element={<SignUp />}/>
         </Routes>
       </Router>

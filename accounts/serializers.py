@@ -1,6 +1,6 @@
 from tokenize import TokenError
 from rest_framework import serializers
-from .models import User,Applications
+from .models import User,Applications,App_Category
 from django.contrib.auth import authenticate
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework_simplejwt.tokens import RefreshToken, Token
@@ -77,4 +77,5 @@ class ApplicationSerializer(serializers.ModelSerializer):
     app_category = serializers.CharField(source='app_category.category', read_only=True)
     class Meta:
         model =Applications
-        fields =['id','app_name','image','url','app_category','description']
+        fields =['app_name','image','url','app_category','description']
+    
